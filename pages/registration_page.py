@@ -8,6 +8,9 @@ class RegistrationPage:
     CONFIRM_PASSWORD_INPUT = (By.CSS_SELECTOR, "#ConfirmPassword")
     REGISTER_BUTTON = (By.CSS_SELECTOR, "#register-button")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".result")
+    FIRST_NAME_ERROR = (By.CSS_SELECTOR, "span[for='FirstName']")
+    LAST_NAME_ERROR = (By.CSS_SELECTOR, "span[for='LastName']")
+    CONFIRM_PASSWORD_ERROR = (By.CSS_SELECTOR, "span[for='ConfirmPassword']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -35,3 +38,13 @@ class RegistrationPage:
 
     def get_success_message(self):
         return self.driver.find_element(*self.SUCCESS_MESSAGE).text
+
+    def get_first_name_error(self):
+        return self.driver.find_element(*self.FIRST_NAME_ERROR).text
+
+    def get_last_name_error(self):
+        return self.driver.find_element(*self.LAST_NAME_ERROR).text
+
+    def get_confirm_password_error(self):
+        return self.driver.find_element(*self.CONFIRM_PASSWORD_ERROR).text
+
